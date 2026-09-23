@@ -1,0 +1,1862 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcos Aurélio Ramos — Perito Judicial e Avaliador de Imóveis</title>
+  <meta name="description" content="Perito Judicial Imobiliário no Distrito Federal e Avaliador de Imóveis (CNAI, CRECI-DF). Suporte técnico especializado para escritórios de advocacia, tribunais TJDFT, TRF, TRT e cartórios em Brasília.">
+  
+  <!-- Basecoat CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@1.0.2/dist/basecoat.cdn.min.css">
+  
+  <!-- Google Fonts: Montserrat (Headings) / Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Fixed Shell CSS -->
+  <style>
+/* Skip artifact shell — fixed styles served beside every artifact.
+   Complements basecoat; artifacts override --accent for their own identity. */
+:root {
+  color-scheme: light dark;
+  --accent: #2563eb;
+  --accent-contrast: #ffffff;
+  --accent-text: color-mix(in srgb, var(--accent) 72%, #000);
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --text: #14171f;
+  --text-muted: #5b6472;
+  --border: rgba(20, 23, 31, 0.10);
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(20, 23, 31, 0.08);
+  --space: 16px;
+}
+/* Theme resolution. Without data-theme the viewer's system preference decides,
+   as it always did. With it, the artifact's own choice wins in BOTH directions:
+   a page that hardcodes one palette must not be handed the opposite set of
+   tokens by the machine it happens to be opened on. The dark values appear
+   twice because a media query cannot be folded into a selector list.
+   The attribute sits inside :where() so these blocks keep the specificity of a
+   bare :root — the page's own <style> is linked after this file and must go on
+   overriding any token it wants, exactly as it could before. */
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    --accent-text: color-mix(in srgb, var(--accent) 78%, #fff);
+    --bg: #101318;
+    --surface: #181c23;
+    --text: #eef1f6;
+    --text-muted: #9aa4b2;
+    --border: rgba(238, 241, 246, 0.12);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+:root:where([data-theme="dark"]) {
+  color-scheme: dark;
+  --accent-text: color-mix(in srgb, var(--accent) 78%, #fff);
+  --bg: #101318;
+  --surface: #181c23;
+  --text: #eef1f6;
+  --text-muted: #9aa4b2;
+  --border: rgba(238, 241, 246, 0.12);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+:root:where([data-theme="light"]) { color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+
+.shell-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.shell-section { padding: calc(var(--space) * 2) 0; }
+.shell-grid { display: grid; gap: var(--space); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.shell-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: var(--space); }
+.shell-footer { padding: 24px 0 40px; color: var(--text-muted); font-size: 13px; }
+
+.shell-hero { padding: calc(var(--space) * 3) 0 calc(var(--space) * 2); }
+.shell-hero h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
+.shell-hero p { color: var(--text-muted); max-width: 60ch; margin: 0; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space);
+}
+
+.kpi { display: flex; flex-direction: column; gap: 4px; }
+.kpi .kpi-value { font-size: 28px; font-weight: 650; line-height: 1.1; }
+.kpi .kpi-label { font-size: 13px; color: var(--text-muted); }
+.kpi .kpi-delta { font-size: 12.5px; font-weight: 600; }
+.kpi .kpi-delta.up { color: #0a8f3c; }
+.kpi .kpi-delta.down { color: #cf3131; }
+
+table.shell-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.shell-table th {
+  text-align: left; font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--text-muted); font-weight: 600;
+}
+table.shell-table th, table.shell-table td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--border); }
+table.shell-table td.num, table.shell-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+.chart-box { width: 100%; min-height: 220px; }
+.chart-box svg { width: 100%; height: auto; display: block; }
+
+.muted { color: var(--text-muted); }
+.accent { color: var(--accent-text); }
+.shell-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shell-fade { animation: shell-fade 400ms ease both; }
+  @keyframes shell-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+
+</style>
+  
+
+  <style>
+    :root {
+      --accent: #b38a38;
+      --accent-hover: #9b7428;
+      --navy-900: #071526;
+      --navy-850: #0b1f3a;
+      --navy-800: #122949;
+      --navy-700: #1c365b;
+      --gold-primary: #b38a38;
+      --gold-light: #dfc07b;
+      --gold-muted: rgba(179, 138, 56, 0.15);
+      --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --border-subtle: rgba(11, 31, 58, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: #1e293b;
+      background-color: #f8fafc;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: var(--font-heading);
+      letter-spacing: -0.02em;
+    }
+
+    /* Fixed Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 31, 58, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(223, 192, 123, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .brand-monogram {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--gold-light);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      background: rgba(179, 138, 56, 0.12);
+      letter-spacing: 1.5px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-titles h1 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      margin: 0;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .brand-titles span {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--gold-light);
+      font-family: var(--font-heading);
+      display: block;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-cta-btn {
+      background: linear-gradient(135deg, #b38a38, #cfa856);
+      color: #0b1f3a !important;
+      font-weight: 700 !important;
+      padding: 9px 18px;
+      border-radius: 4px;
+      border: 1px solid #dfc07b;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(179, 138, 56, 0.4);
+      color: #071526 !important;
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: radial-gradient(circle at 85% 20%, #15325b 0%, #0b1f3a 55%, #061221 100%);
+      color: #ffffff;
+      padding: 64px 0 54px;
+      position: relative;
+      border-bottom: 3px solid #b38a38;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        radial-gradient(rgba(179, 138, 56, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(179, 138, 56, 0.16);
+      border: 1px solid rgba(223, 192, 123, 0.4);
+      border-radius: 30px;
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .hero-name {
+      font-family: var(--font-heading);
+      font-size: 3.3rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      color: #ffffff;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 20px;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: #cbd5e1;
+      max-width: 580px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #b38a38, #cf9e3f);
+      color: #071526;
+      font-weight: 700;
+      padding: 14px 26px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e5c889;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(179, 138, 56, 0.35);
+      filter: brightness(1.06);
+      color: #06101c;
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.05);
+      color: #f1f5f9;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    /* Photo Frame in Hero */
+    .hero-photo-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(223, 192, 123, 0.5), rgba(11, 31, 58, 0.8), rgba(223, 192, 123, 0.25));
+      border-radius: 12px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    .photo-inner {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0f2747;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(223, 192, 123, 0.4);
+    }
+
+    .photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .photo-caption-tag {
+      position: absolute;
+      bottom: 22px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 31, 58, 0.92);
+      border: 1px solid rgba(223, 192, 123, 0.5);
+      border-radius: 6px;
+      padding: 10px 14px;
+      backdrop-filter: blur(8px);
+      text-align: center;
+    }
+
+    .photo-caption-name {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .photo-caption-role {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      margin: 3px 0 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    /* Trust Credential Bar */
+    .hero-credentials-bar {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cred-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .cred-chip strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* Section Styling */
+    .section-padding {
+      padding: 86px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 52px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 2.2px;
+      color: var(--accent);
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.35rem;
+      color: var(--navy-900);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      line-height: 1.22;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .divider-gold {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 18px auto 0;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 44px;
+      box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.02rem;
+      color: #334155;
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    .highlight-lead {
+      font-size: 1.2rem !important;
+      font-weight: 600;
+      color: var(--navy-850) !important;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin-bottom: 24px !important;
+    }
+
+    .qual-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .qual-box-title {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--accent);
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    .qual-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .qual-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #1e293b;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .qual-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .qual-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 34px 28px;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 34px rgba(11, 31, 58, 0.1);
+      border-color: #dfc07b;
+    }
+
+    .service-icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      background: #0b1f3a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      margin-bottom: 22px;
+      font-size: 1.4rem;
+      border: 1px solid rgba(223, 192, 123, 0.4);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.28rem;
+      color: var(--navy-900);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 14px;
+      line-height: 1.35;
+    }
+
+    .service-card p {
+      font-size: 0.94rem;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0 0 20px;
+    }
+
+    .service-footer {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 16px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Methodology / Timeline */
+    .method-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      margin-top: 36px;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 30px 22px;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(11, 31, 58, 0.06);
+    }
+
+    .step-number {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: rgba(179, 138, 56, 0.35);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .step-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--navy-900);
+      margin: 0 0 10px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .methodology-banner {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #0b1f3a, #122949);
+      color: #ffffff;
+      padding: 28px 36px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .methodology-banner p {
+      margin: 0;
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Areas Section */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .area-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .area-item:hover {
+      border-color: var(--accent);
+      background-color: #ffffff;
+      box-shadow: 0 4px 16px rgba(11, 31, 58, 0.05);
+    }
+
+    .area-item-bullet {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: rgba(179, 138, 56, 0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .area-item-content h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--navy-900);
+      margin: 0 0 6px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .area-item-content p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Normative Base (Authority) Section */
+    .normative-section {
+      background: #0b1f3a;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .normative-section .section-title {
+      color: #ffffff;
+    }
+
+    .normative-section .section-subtitle {
+      color: #cbd5e1;
+    }
+
+    .normative-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .norm-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(223, 192, 123, 0.24);
+      border-radius: 8px;
+      padding: 32px 26px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .norm-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--gold-light);
+    }
+
+    .norm-pill {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(179, 138, 56, 0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .norm-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.28rem;
+      color: #ffffff;
+      margin: 0 0 12px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.32;
+    }
+
+    .norm-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 16px 40px rgba(11, 31, 58, 0.06);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-channel {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .contact-channel:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: #0b1f3a;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .channel-meta span {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .channel-meta strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--navy-900);
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .contact-action-box {
+      background: linear-gradient(145deg, #0b1f3a, #132a4a);
+      border-radius: 10px;
+      padding: 38px 32px;
+      color: #ffffff;
+      text-align: center;
+      border: 1px solid rgba(223, 192, 123, 0.3);
+    }
+
+    .contact-action-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: #ffffff;
+    }
+
+    .contact-action-box p {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin: 0 0 28px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #071526;
+      color: #94a3b8;
+      padding: 48px 0 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.88rem;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 26px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 999;
+      background: #25d366;
+      color: #ffffff;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+      color: #ffffff;
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    .whatsapp-float-tooltip {
+      position: absolute;
+      right: 74px;
+      background: #0b1f3a;
+      color: #ffffff;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(223, 192, 123, 0.3);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      font-weight: 500;
+    }
+
+    .whatsapp-float:hover .whatsapp-float-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+      }
+
+      .hero-name {
+        font-size: 2.8rem;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-credentials-bar {
+        justify-content: center;
+      }
+
+      .hero-photo-container {
+        order: -1;
+      }
+
+      .photo-frame {
+        max-width: 300px;
+      }
+
+      .photo-inner {
+        height: 360px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .normative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .methodology-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #0b1f3a;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(223, 192, 123, 0.25);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero-name {
+        font-size: 2.3rem;
+      }
+
+      .section-title {
+        font-size: 2.05rem;
+      }
+
+      .method-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card, .contact-container {
+        padding: 26px 20px;
+      }
+
+      .whatsapp-float-tooltip {
+        display: none;
+      }
+    }
+
+    /* Print styling */
+    @media print {
+      .site-header, .whatsapp-float, .btn-gold, .btn-outline-light, .nav-cta-btn {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+      .hero-section, .normative-section {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .hero-name, .hero-subtitle, .norm-card h3, .section-title {
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION -->
+  <header class="site-header">
+    <div class="shell-container header-inner">
+      <a href="#hero" class="brand-wrap" aria-label="Página Inicial - Marcos Aurélio Ramos">
+        <!-- COLOQUE AQUI O ARQUIVO DA LOGO COM O NOME logo-marcos.png -->
+        <img src="logo-marcos.png" alt="Logo Marcos Aurélio Ramos" class="brand-logo">
+        <div class="brand-titles">
+          <h1>Marcos Aurélio Ramos</h1>
+          <span>Perito Judicial &bull; DF</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+        <li><a href="#areas">Áreas de Atuação</a></li>
+        <li><a href="#normas">Base Normativa</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="shell-container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Atendimento no Distrito Federal &amp; Entorno
+          </div>
+          <h1 class="hero-name">Marcos Aurélio Ramos</h1>
+          <div class="hero-subtitle">Perito Judicial | Avaliação de Imóveis</div>
+          <p class="hero-lead">
+            Suporte técnico especializado em avaliação imobiliária para escritórios de advocacia, tribunais de justiça e demandas judiciais e extrajudiciais de alta complexidade.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/5561999598432?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20perito%20Marcos%20Aur%C3%A9lio%20Ramos" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              Falar com o Perito
+            </a>
+            <a href="#servicos" class="btn-outline-light">
+              Conheça os Serviços
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="hero-credentials-bar">
+            <span class="cred-chip"><strong>CRECI-DF</strong> 31.209</span>
+            <span class="cred-chip"><strong>CNAI</strong> 052166</span>
+            <span class="cred-chip">Atuação nos Tribunais: <strong>TJDFT | TRF | TRT</strong></span>
+          </div>
+        </div>
+
+        <!-- PHOTO CONTAINER -->
+        <div class="hero-photo-container">
+          <div class="photo-frame">
+            <div class="photo-inner">
+              <!-- COLOQUE AQUI O ARQUIVO DA FOTO COM O NOME foto-marcos.jpg -->
+              <img src="foto-marcos.jpg" 
+                   alt="Marcos Aurélio Ramos - Perito Judicial" 
+                   onerror="this.onerror=null; this.src='https://img.usecurling.com/ppl/large?gender=male&seed=42';">
+              <div class="photo-caption-tag">
+                <div class="photo-caption-name">Marcos Aurélio Ramos</div>
+                <div class="photo-caption-role">Perito Judicial &bull; Avaliador Imobiliário</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SOBRE O PROFISSIONAL -->
+    <section class="section-padding" id="sobre">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker">Perfil Institucional</span>
+          <h2 class="section-title">Autoridade Técnica e Rigor Metodológico</h2>
+          <p class="section-subtitle">
+            Comunicação assertiva, fundamentação técnica sólida e credibilidade perante os magistrados e operadores do Direito no Distrito Federal.
+          </p>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-grid">
+            <div class="about-text">
+              <p class="highlight-lead">
+                Marcos Aurélio Ramos atua como perito judicial e avaliador de imóveis no Distrito Federal, oferecendo suporte técnico de excelência para bancas de advocacia, pessoas físicas, empresas e tribunais.
+              </p>
+              <p>
+                Com uma visão estratégica que integra rigor técnico-normativo e clareza de argumentação, elabora laudos periciais fundamentados na norma <strong>ABNT NBR 14.653</strong> e em conformidade com as diretrizes do Conselho Federal de Corretores de Imóveis (COFECI).
+              </p>
+              <p>
+                Sua atuação prioriza a segurança jurídica de seus clientes e parceiros, transformando quesitos complexos e vistorias detalhadas em pareceres técnicos incontestáveis, estruturados para instruir processos cíveis, fiscais, trabalhistas e inventários no <strong>TJDFT, TRF1 e TRT10</strong>.
+              </p>
+            </div>
+
+            <div class="about-qualifications">
+              <div class="qual-box">
+                <div class="qual-box-title">Formação Acadêmica</div>
+                <ul class="qual-list">
+                  <li>
+                    <span class="qual-icon">&#9670;</span>
+                    <div><strong>Bacharel em Comunicação Social</strong> — Habilidade analítica e clareza na redação de laudos e quesitos periciais.</div>
+                  </li>
+                  <li>
+                    <span class="qual-icon">&#9670;</span>
+                    <div><strong>Técnico em Gestão e Negócios</strong> — Visão mercadológica, precisão de liquidez e valuation imobiliário.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="qual-box">
+                <div class="qual-box-title">Especializações &amp; Habilitações</div>
+                <ul class="qual-list">
+                  <li>
+                    <span class="qual-icon">&#9670;</span>
+                    <div><strong>Perito Judicial Imobiliário</strong> — Inscrito nos cadastros periciais de tribunais do DF e da União.</div>
+                  </li>
+                  <li>
+                    <span class="qual-icon">&#9670;</span>
+                    <div><strong>Avaliações Imobiliárias</strong> — Métodos comparativo direto de dados de mercado, involutivo, evolutivo e de renda.</div>
+                  </li>
+                  <li>
+                    <span class="qual-icon">&#9670;</span>
+                    <div><strong>Credenciamento Oficial</strong> — Registro no CRECI-DF e Certificação CNAI.</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SERVIÇOS -->
+    <section class="section-padding" id="servicos" style="background-color: #f1f5f9;">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker">Soluções Periciais</span>
+          <h2 class="section-title">Serviços Técnicos Especializados</h2>
+          <p class="section-subtitle">
+            Instrumentos técnicos precisos para subsidiar decisões judiciais e decisões estratégicas em negócios imobiliários de Brasília e entorno.
+          </p>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <h3>Laudo de Avaliação Imobiliária</h3>
+              <p>
+                Elaboração de laudos técnicos de avaliação mercadológica de imóveis urbanos (residenciais e comerciais) e rurais no Distrito Federal, com estrita observância às normas da ABNT e garantia do grau de fundamentação e precisão requeridos.
+              </p>
+            </div>
+            <div class="service-footer">
+              <span>Normas ABNT NBR 14.653</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3>Assistência Técnica em Perícias</h3>
+              <p>
+                Apoio técnico estratégico a advogados em ações judiciais: formulação de quesitos periciais pertinentes, acompanhamento presencial da diligência do perito do juízo e emissão de parecer técnico fundamentado ou manifestação crítica sobre o laudo oficial.
+              </p>
+            </div>
+            <div class="service-footer">
+              <span>Atuação lado a lado com a banca</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <h3>Consultoria Imobiliária para Litígios</h3>
+              <p>
+                Suporte técnico preventivo e contencioso em disputas envolvendo valores locatícios (ações renovatórias e revisionais), partilhas patrimoniais societárias ou familiares, dissolução de sociedade e apuração de haveres imobiliários.
+              </p>
+            </div>
+            <div class="service-footer">
+              <span>Redução de riscos financeiros</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div>
+              <div class="service-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <h3>Perícia Extrajudicial e Notarial</h3>
+              <p>
+                Avaliações patrimoniais destinadas a inventários extrajudiciais em cartório, escrituras de doação, partilhas amigáveis, integralização de capital social e suporte a tabelionatos de notas e registros de imóveis no DF.
+              </p>
+            </div>
+            <div class="service-footer">
+              <span>Prontidão para atos cartorários</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. METODOLOGIA -->
+    <section class="section-padding" id="metodologia">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker">Fluxo de Trabalho</span>
+          <h2 class="section-title">Metodologia Pericial Estruturada</h2>
+          <p class="section-subtitle">
+            Processo transparente e previsível em 3 fases, desenhado para conferir celeridade e robustez probatória a cada laudo de avaliação imobiliária em Brasília.
+          </p>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="method-timeline">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h4>Vistoria &amp; Coleta de Dados</h4>
+            <p>
+              Inspeção minuciosa in loco do imóvel com registro fotográfico, análise de estado de conservação e pesquisa amostral de mercado com tratamento estatístico rigoroso.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h4>Elaboração do Laudo</h4>
+            <p>
+              Aplicação dos métodos avaliatórios normatizados (NBR 14.653), cálculo de depreciação e determinação do valor de mercado fundamentado e justificado.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h4>Entrega &amp; Suporte Contínuo</h4>
+            <p>
+              Disponibilização do laudo técnico assinado digitalmente e suporte integral ao advogado para esclarecimentos, impugnações ou quesitos complementares nos autos.
+            </p>
+          </div>
+        </div>
+
+        <div class="methodology-banner">
+          <div>
+            <h4 style="font-size: 1.25rem; margin: 0 0 6px; color: #ffffff;">Parceria Estratégica com Bancas de Advocacia</h4>
+            <p>
+              Trabalhamos de forma coordenada com a equipe jurídica desde a fase postulatória até a execução, assegurando quesitos técnicos precisos e contraditório qualificado.
+            </p>
+          </div>
+          <a href="https://wa.me/5561999598432?text=Ol%C3%A1%2C%20gostaria%20de%20alinhar%20uma%20demanda%20pericial" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-gold" 
+             style="white-space: nowrap; flex-shrink: 0;">
+            Alinhar Demanda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ÁREAS DE ATENDIMENTO -->
+    <section class="section-padding" id="areas" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker">Cenários Típicos</span>
+          <h2 class="section-title">Áreas de Atuação &amp; Aplicações Judiciais</h2>
+          <p class="section-subtitle">
+            Como perito judicial imobiliário no Distrito Federal, Marcos Aurélio Ramos atua nos mais diversos tipos de procedimentos cíveis e tributários.
+          </p>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Execuções e Penhoras</h4>
+              <p>Avaliação precisa de bens penhorados para leilões ou adjudicação judicial, evitando alegações de preço vil ou sobreavaliação no TJDFT e TRF1.</p>
+            </div>
+          </div>
+
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Inventário e Partilha</h4>
+              <p>Determinação do valor real do monte-mor para partilha justa de herança ou dissolução de união conjugal, tanto judicial quanto por via extrajudicial notarial.</p>
+            </div>
+          </div>
+
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Ações Possessórias</h4>
+              <p>Quantificação de indenização por benfeitorias necessárias, úteis e voluptuárias em litígios de reintegração ou manutenção de posse.</p>
+            </div>
+          </div>
+
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Desapropriação e Servidões</h4>
+              <p>Perícia para apuração da justa indenização em desapropriações promovidas pelo Poder Público no Distrito Federal ou concessionárias de serviço público.</p>
+            </div>
+          </div>
+
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Usucapião Judicial e Extrajudicial</h4>
+              <p>Identificação do imóvel, caracterização de confrontações, limites físicos e atribuição de valor de mercado para fins de regularização registral.</p>
+            </div>
+          </div>
+
+          <div class="area-item">
+            <div class="area-item-bullet">&#10003;</div>
+            <div class="area-item-content">
+              <h4>Financiamento e Regularização</h4>
+              <p>Laudo de avaliação imobiliária em Brasília para garantia bancária, operações societárias de aporte, reavaliação de ativos fixos e auditorias patrimoniais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BASE NORMATIVA (AUTORIDADE) -->
+    <section class="section-padding normative-section" id="normas">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker" style="color: var(--gold-light);">Segurança Jurídica</span>
+          <h2 class="section-title">Base Normativa e Conformidade Legal</h2>
+          <p class="section-subtitle">
+            Trabalho pericial pautado estritamente na legislação federal e nas diretrizes vigentes, garantindo blindagem técnica em qualquer instância judicial.
+          </p>
+          <div class="divider-gold" style="background: var(--gold-light);"></div>
+        </div>
+
+        <div class="normative-grid">
+          <div class="norm-card">
+            <span class="norm-pill">Legislação Federal</span>
+            <h3>Lei Federal nº 6.530/1978</h3>
+            <p>
+              Marco regulatório que disciplina o exercício da profissão de Corretor e Avaliador de Imóveis, assegurando competência legal privativa para a realização de avaliações mercadológicas imobiliárias em todo o território nacional.
+            </p>
+          </div>
+
+          <div class="norm-card">
+            <span class="norm-pill">Engenharia de Avaliações</span>
+            <h3>ABNT NBR 14.653</h3>
+            <p>
+              Norma técnica brasileira que rege os procedimentos de avaliação de bens (partes 1, 2 e 3). Estabelece os métodos científicos aceitos, o tratamento matemático das amostras e a classificação dos graus de fundamentação e precisão do laudo.
+            </p>
+          </div>
+
+          <div class="norm-card">
+            <span class="norm-pill">Regulamentação Profissional</span>
+            <h3>Resolução COFECI nº 1.066/2007</h3>
+            <p>
+              Estabelece as normas e procedimentos para emissão do Parecer Técnico de Avaliação Mercadológica (PTAM) e institui o Cadastro Nacional de Avaliadores Imobiliários (CNAI), conferindo credencial oficial para perícias judiciais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTATO E ATENDIMENTO -->
+    <section class="section-padding" id="contato">
+      <div class="shell-container">
+        <div class="section-header">
+          <span class="section-kicker">Comunicação Direta</span>
+          <h2 class="section-title">Fale com o Perito Judicial</h2>
+          <p class="section-subtitle">
+            Atendimento direto e célere para advogados, partes processuais, cartórios e magistrados no Distrito Federal e Região Integrada de Desenvolvimento (RIDE).
+          </p>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-grid">
+            <div class="contact-info-block">
+              <a href="https://wa.me/5561999598432?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20perito%20Marcos%20Aur%C3%A9lio%20Ramos" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="contact-channel">
+                <div class="channel-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                </div>
+                <div class="channel-meta">
+                  <span>WhatsApp Profissional</span>
+                  <strong>(61) 9.9959-8432</strong>
+                </div>
+              </a>
+
+              <a href="mailto:marcosaurelioramos@gmail.com" class="contact-channel">
+                <div class="channel-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="channel-meta">
+                  <span>Correio Eletrônico</span>
+                  <strong>marcosaurelioramos@gmail.com</strong>
+                </div>
+              </a>
+
+              <div class="contact-channel" style="cursor: default;">
+                <div class="channel-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="channel-meta">
+                  <span>Região de Cobertura</span>
+                  <strong>Distrito Federal (Brasília e Região Integrada - RIDE)</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-action-box">
+              <h3>Precisa de suporte em processo ou avaliação técnica?</h3>
+              <p>
+                Envie os detalhes da demanda, prazo processual ou agende uma conferência preliminar para alinhamento dos quesitos técnicos da perícia.
+              </p>
+              <a href="https://wa.me/5561999598432?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20perito%20Marcos%20Aur%C3%A9lio%20Ramos" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-gold" 
+                 style="width: 100%; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Fale com o Perito Agora
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer">
+    <div class="shell-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div>
+            <h4 style="color: #ffffff; font-size: 1.05rem; margin: 0; font-family: var(--font-heading); font-weight: 800; letter-spacing: 0.3px;">Marcos Aurélio Ramos</h4>
+            <span style="font-size: 0.78rem; color: var(--gold-light); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;">Perito Judicial | Avaliação de Imóveis &bull; Distrito Federal</span>
+          </div>
+        </div>
+        <div style="font-size: 0.85rem; color: #cbd5e1;">
+          Credenciais: <strong style="color: #ffffff;">CRECI-DF</strong> &bull; <strong style="color: #ffffff;">CNAI</strong> &bull; Auxiliar da Justiça (<strong style="color: #ffffff;">TJDFT | TRF1 | TRT10</strong>)
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Marcos Aurélio Ramos. Todos os direitos reservados.
+        </div>
+        <div>
+          Laudo de avaliação imobiliária em Brasília e perícias judiciais no DF de acordo com a ABNT NBR 14.653.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/5561999598432?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20perito%20Marcos%20Aur%C3%A9lio%20Ramos" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Abrir conversa no WhatsApp com Marcos Aurélio Ramos">
+    <span class="whatsapp-float-tooltip">Falar com o Perito Marcos Aurélio</span>
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('navLinks');
+      
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          nav.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+<script>
+/* Skip artifact shell — fixed helpers served beside every artifact. */
+(function () {
+  "use strict";
+
+  var fmt = {
+    num: function (v, opts) { return new Intl.NumberFormat("pt-BR", opts || {}).format(v); },
+    brl: function (v) { return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v); },
+    pct: function (v) { return new Intl.NumberFormat("pt-BR", { style: "percent", maximumFractionDigits: 1 }).format(v); }
+  };
+
+  // axisFmt keeps axis tick labels short (compact notation) so long values
+  // (e.g. full BRL amounts) never clip against the plot edge.
+  function axisFmt(v) {
+    return fmt.num(v, { notation: "compact", maximumFractionDigits: 1 });
+  }
+
+  // format accepts a function OR one of the fmt names ("num" | "brl" | "pct").
+  function coerceFormat(spec) {
+    if (typeof spec === "function") return spec;
+    if (typeof spec === "string" && fmt[spec]) return fmt[spec];
+    return function (v) { return fmt.num(v); };
+  }
+
+  function accent() {
+    return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#2563eb";
+  }
+  function mutedColor() {
+    return getComputedStyle(document.documentElement).getPropertyValue("--text-muted").trim() || "#5b6472";
+  }
+  function svgEl(tag, attrs) {
+    var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+  function frame(el, w, h) {
+    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img" });
+    el.innerHTML = "";
+    el.appendChild(svg);
+    return svg;
+  }
+
+  // maxOf guards the axis scale: empty values would give -Infinity (truthy,
+  // so "|| 1" can't catch it) and a non-positive max would flip the chart.
+  function maxOf(values) {
+    var m = values.length ? Math.max.apply(null, values) : 0;
+    return m > 0 ? m : 1;
+  }
+
+  // bar(el, {labels:[], values:[], color?, format?}) — vertical bar chart.
+  function bar(el, cfg) {
+    var W = 640, H = 280, padL = 46, padB = 30, padT = 12;
+    var svg = frame(el, W, H);
+    var max = maxOf(cfg.values);
+    var n = cfg.values.length;
+    var plotW = W - padL - 12, plotH = H - padT - padB;
+    var step = plotW / n, bw = Math.min(step * 0.62, 64);
+    var color = cfg.color || accent();
+    var f = coerceFormat(cfg.format);
+    for (var g = 0; g <= 4; g++) {
+      var gy = padT + plotH - (plotH * g) / 4;
+      svg.appendChild(svgEl("line", { x1: padL, y1: gy, x2: W - 12, y2: gy, stroke: "currentColor", "stroke-opacity": 0.08 }));
+      var lbl = svgEl("text", { x: padL - 8, y: gy + 4, "text-anchor": "end", "font-size": 10, fill: mutedColor() });
+      lbl.textContent = axisFmt((max * g) / 4);
+      svg.appendChild(lbl);
+    }
+    cfg.values.forEach(function (v, i) {
+      var bh = Math.max(0, (v / max) * plotH);
+      var x = padL + i * step + (step - bw) / 2;
+      var y = padT + plotH - bh;
+      var r = svgEl("rect", { x: x, y: y, width: bw, height: bh, rx: 4, fill: color });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + f(v);
+      r.appendChild(t);
+      svg.appendChild(r);
+      var tx = svgEl("text", { x: x + bw / 2, y: H - 10, "text-anchor": "middle", "font-size": 11, fill: mutedColor() });
+      tx.textContent = cfg.labels[i];
+      svg.appendChild(tx);
+    });
+  }
+
+  // line(el, {labels:[], values:[], color?, format?}) — single-series line.
+  function line(el, cfg) {
+    var W = 640, H = 280, padL = 46, padB = 30, padT = 12;
+    var svg = frame(el, W, H);
+    var max = maxOf(cfg.values);
+    var n = cfg.values.length;
+    var plotW = W - padL - 16, plotH = H - padT - padB;
+    var color = cfg.color || accent();
+    var f = coerceFormat(cfg.format);
+    for (var g = 0; g <= 4; g++) {
+      var gy = padT + plotH - (plotH * g) / 4;
+      svg.appendChild(svgEl("line", { x1: padL, y1: gy, x2: W - 16, y2: gy, stroke: "currentColor", "stroke-opacity": 0.08 }));
+      var lbl = svgEl("text", { x: padL - 8, y: gy + 4, "text-anchor": "end", "font-size": 10, fill: mutedColor() });
+      lbl.textContent = axisFmt((max * g) / 4);
+      svg.appendChild(lbl);
+    }
+    var pts = cfg.values.map(function (v, i) {
+      var x = padL + (n === 1 ? plotW / 2 : (plotW * i) / (n - 1));
+      var y = padT + plotH - (v / max) * plotH;
+      return [x, y];
+    });
+    var d = pts.map(function (p, i) { return (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" ");
+    svg.appendChild(svgEl("path", { d: d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }));
+    pts.forEach(function (p, i) {
+      var c = svgEl("circle", { cx: p[0], cy: p[1], r: 3.5, fill: color });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + f(cfg.values[i]);
+      c.appendChild(t);
+      svg.appendChild(c);
+      var tx = svgEl("text", { x: p[0], y: H - 10, "text-anchor": "middle", "font-size": 11, fill: mutedColor() });
+      tx.textContent = cfg.labels[i];
+      svg.appendChild(tx);
+    });
+  }
+
+  // donut(el, {labels:[], values:[], colors?}) — donut with center total.
+  function donut(el, cfg) {
+    var W = 320, H = 280, cx = W / 2, cy = H / 2, R = 92, r = 58;
+    var svg = frame(el, W, H);
+    var total = cfg.values.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var palette = cfg.colors || [accent(), "#1baf7a", "#eda100", "#e34948", "#4a3aa7", "#e87ba4"];
+    var a0 = -Math.PI / 2;
+    cfg.values.forEach(function (v, i) {
+      var a1 = a0 + (v / total) * Math.PI * 2;
+      var large = a1 - a0 > Math.PI ? 1 : 0;
+      var p = ["M", cx + R * Math.cos(a0), cy + R * Math.sin(a0),
+        "A", R, R, 0, large, 1, cx + R * Math.cos(a1), cy + R * Math.sin(a1),
+        "L", cx + r * Math.cos(a1), cy + r * Math.sin(a1),
+        "A", r, r, 0, large, 0, cx + r * Math.cos(a0), cy + r * Math.sin(a0), "Z"].join(" ");
+      var path = svgEl("path", { d: p, fill: palette[i % palette.length] });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + fmt.num(v) + " (" + fmt.pct(v / total) + ")";
+      path.appendChild(t);
+      svg.appendChild(path);
+      a0 = a1;
+    });
+    var center = svgEl("text", { x: cx, y: cy + 5, "text-anchor": "middle", "font-size": 20, "font-weight": 650, fill: "currentColor" });
+    center.textContent = fmt.num(total);
+    svg.appendChild(center);
+  }
+
+  window.skipShell = { fmt: fmt };
+  window.skipChart = { bar: bar, line: line, donut: donut };
+})();
+
+</script>
+</body>
+</html>
