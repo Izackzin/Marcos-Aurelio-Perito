@@ -42,12 +42,6 @@ As cores principais estão definidas no CSS (variáveis no topo do arquivo):
 - Branco (fundo)
 - Dourado/cinza (detalhes)
 
-### Contato
-- **WhatsApp:** (61) 9.9959-8432, link `https://wa.me/5561999598432`
-- **E-mail:** marcosaurelioramos@gmail.com
-
-Para trocar os dados, edite o link do WhatsApp e o e-mail no código.
-
 ### Fontes
 Tipografia sans-serif geométrica (estilo Montserrat) para títulos e sans-serif limpa para o texto corrido.
 
